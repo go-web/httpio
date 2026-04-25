@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"encoding/xml"
 	"io"
-	"io/ioutil"
 	"net/http"
 
 	"github.com/gorilla/schema"
@@ -49,7 +48,7 @@ type yamlDecoder struct {
 }
 
 func (yd *yamlDecoder) Decode(v interface{}) error {
-	b, err := ioutil.ReadAll(yd.r)
+	b, err := io.ReadAll(yd.r)
 	if err != nil {
 		return err
 	}
